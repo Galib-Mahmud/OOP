@@ -1,0 +1,34 @@
+
+package opplab;
+
+import java.util.Scanner;
+
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+
+        System.out.println("Enter the range :");
+ int n=input.nextInt();
+ 
+ int  first=0;
+    int secound = 1;
+    int fibonacci ;
+        System.out.print(first+"        "+secound);
+        
+        for(int i=3;i<=n;i++)
+        {
+            fibonacci=first+secound;
+            System.out.print("\t"+fibonacci);
+            first=secound;
+            secound=fibonacci;
+        }
+        System.out.println("");
+    
+         
+        
+  
+    }
+}      
+ 
