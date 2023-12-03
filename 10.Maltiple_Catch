@@ -1,0 +1,24 @@
+ 
+package ooplab;
+
+
+public class MultipleCatch {
+    public static void main(String[] args) {
+        try
+        {
+    int arr[]={1,2,3};
+int result=arr[2]/0;
+            System.out.println(result);
+        }
+        catch(ArrayIndexOutOfBoundsException a)
+        {
+            System.out.println(a);
+        }
+    catch(ArithmeticException a){
+        System.out.println(a );
+    }
+        catch(Exception a){
+            System.out.println("e");
+        }
+}
+}
