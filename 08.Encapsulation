@@ -1,0 +1,37 @@
+
+package ooplab;
+
+
+public class Encapsulation {
+    
+    private String name;
+    private int age;
+    
+    public void SetName(String n)
+    {
+       name=n;
+    }
+public void SetAge(int a )
+{
+    age=a;
+}
+  public String getName()
+    {
+       return name;
+    }
+public int getAge( )
+{
+    return age;
+}
+  
+    public static void main(String[] args) {
+        Encapsulation ob=new Encapsulation();
+        ob.SetName("Galib");
+        ob.SetAge(21);
+       
+        System.out.println(ob.getName());
+        System.out.println(ob.getAge());
+  
+    }
+    
+}
