@@ -1,0 +1,24 @@
+package mypack;
+
+public class Circle {
+	public void display(){
+		System.out.println("This is a circle.");
+	}
+public void area(double r){
+System.out.println("Area of circle= " + (3.1416 * r * r));
+}
+}
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+package com.xxx;
+import mypack.Circle;
+
+public class ImportClass {
+public static void main(String args[]) {
+mypack.Circle c1= new mypack.Circle();
+c1.display();
+c1.area(3);
+}
+}
