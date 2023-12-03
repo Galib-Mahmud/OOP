@@ -1,0 +1,33 @@
+
+package opplab;
+
+import java.util.Scanner;
+
+
+public class MtoNprime {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        int s,e,count=0;
+        System.out.println("Enter starting number");
+        s=input.nextInt();
+        System.out.println("Enter ending number");
+        e=input.nextInt();
+        for(int i=s;i<=e;i++)// s theke e projonto sonkha gula input nibe
+        {
+            for(int j=2;j<i;j++)//2 theke suru kore oi sonkha projonto 
+            
+            {
+                if(i%j==0)
+                {
+                    count++;
+                break;
+                }
+            }
+            if(count==0&&i>1)
+                System.out.println(i );
+            count=0;
+        }
+    }
+      
+    
+}
