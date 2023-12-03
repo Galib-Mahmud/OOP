@@ -1,0 +1,24 @@
+package com.xxx;
+import java.util.Scanner;
+
+public class Fibonacci_Series {
+public static void main(String args[]) {
+int f_num= 0, s_num= 1, temp = 0;
+Scanner scan= new Scanner(System.in);
+System.out.print("Enter a number of terms of series: ");
+int num= scan.nextInt();
+System.out.print("Enter a number to find nth Fibonacci number: ");
+int nth= scan.nextInt();
+System.out.print("Fibonacci series till " + num + " terms: ");
+for(int i=1; i<= num; i++){
+System.out.print(f_num + ", ");
+if(i == nth){
+temp= f_num;
+}
+int n_num= f_num + s_num;
+f_num= s_num;
+s_num= n_num;
+}
+System.out.print("\nThe nth Fibonacci number of this series: " + temp);
+}
+}
