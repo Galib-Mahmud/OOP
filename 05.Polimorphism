@@ -1,0 +1,52 @@
+
+package ooplab;
+
+class Shape {
+public void draw() {
+System.out.println("Drawing a shape");
+}
+public void erase() {
+System.out.println("Erasing a shape");
+}
+}
+
+class Circle extends Shape {
+public void draw() {
+System.out.println("Drawing a circle");
+}
+public void erase() {
+System.out.println("Erasing a circle");
+}
+}
+class Square extends Shape {
+public void draw() {
+System.out.println("Drawing a square");
+}
+public void erase() {
+System.out.println("Erasing a square");
+}
+}
+public class Polymorphism {
+public static void main(String args[]) {
+Shape s1 = new Circle();
+Shape s2 = new Triangle();
+Shape s3 = new Square();
+s1.draw();  
+s1.erase();
+s2.draw(); 
+s2.erase();
+s3.draw(); 
+s3.erase();
+}
+}
+
+
+class Triangle extends Shape {
+public void draw() {
+System.out.println("Drawing a triangle");
+}
+public void erase() {
+System.out.println("Erasing a triangle");
+}
+}
+
