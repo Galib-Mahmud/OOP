@@ -1,0 +1,37 @@
+
+package ooplab;
+
+class Animal{
+ void animal()
+    {
+        System.out.println("Crying Animal");
+    }}
+ class Dog extends Animal{
+     void animal()
+    {
+        System.out.println("Crying Dog");
+    }}
+class Cat extends Animal{
+    void animal()
+    {
+        System.out.println("Crying Cat");
+    }
+
+
+ }
+     
+ 
+
+public class Overriding {
+    public static void main(String[] args) {
+        Animal a=new Animal();
+        a.animal();
+        Dog d=new Dog();
+        d.animal();
+        Cat c=new Cat();
+        c.animal();
+        
+    }
+   
+    
+}
