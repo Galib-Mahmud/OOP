@@ -1,0 +1,32 @@
+
+package ooplab;
+
+interface A
+        {
+    void jump();
+}
+interface B{
+    void Swim();
+   
+}
+class C implements A,B{
+   @Override
+   public void jump(){
+        System.out.println("JUmping");
+        
+    }
+   @Override
+     public void Swim()
+    {
+        System.out.println("Swiming ");
+    }
+
+}
+public class Multiple {
+    public static void main(String[] args) {
+        C a =new C();
+        a.jump();
+        a.Swim();
+    }
+    
+}
