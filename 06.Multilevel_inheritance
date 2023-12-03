@@ -1,0 +1,35 @@
+
+package ooplab;
+class A{
+    void start(){
+        System.out.println("Starting a car");
+    }
+}
+class B extends A{
+    void accelerate()
+    {
+        System.out.println("Accelearating a car");
+    }
+}
+  
+class C extends B{
+    void stop()
+    {
+        System.out.println("Stop the car");
+    }
+}
+
+
+public class MultilevelInheritance {
+    public static void main(String[] args) {
+        A a=new A();
+        a.start();
+        B b=new B();
+        b.start();
+        b.accelerate();
+        C c=new C();
+        c.start();
+        c.accelerate();
+        c.stop();
+    }
+}
