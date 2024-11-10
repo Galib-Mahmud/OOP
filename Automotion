@@ -1,0 +1,91 @@
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Scanner;
+
+public class Automotion {
+    public static void main(String[] args) {
+     
+        System.setProperty("webdriver.chrome.driver", "");
+        WebDriver driver = new ChromeDriver();
+
+        try {
+            // Open Google
+            driver.get("https://www.google.com");
+
+           
+            WebElement searchBox = driver.findElement(By.name("a"));
+            
+           
+            Scanner scanner = new Scanner(System.in);
+
+          
+            String longestKeyword = "";
+            String shortestKeyword = "";
+            
+            while (true) {
+                System.out.print(" search  ");
+                String input = scanner.nextLine();
+
+                if (input.equalsIgnoreCase("exit")) break;
+
+               
+                searchBox.clear();
+                searchBox.sendKeys(input);
+                searchBox.sendKeys(Keys.RETURN);
+
+           
+                if (input.length() > longestKeyword.length()) {
+                    longestKeyword = input;
+                }
+                if (shortestKeyword.isEmpty() || input.length() < shortestKeyword.length()) {
+                    shortestKeyword = input;
+                }
+
+              
+                Thread.sleep(5000);
+            }
+
+ 
+            writeKeywordsToExcel(longestKeyword, shortestKeyword);
+            System.out.println("Keywords saved to Excel file.");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            driver.quit();
+        }
+    }
+
+    private static void writeKeywordsToExcel(String longestKeyword, String shortestKeyword) {
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet("Keywords");
+
+     
+        Row headerRow = sheet.createRow(0);
+        headerRow.createCell(0).setCellValue("Date");
+        headerRow.createCell(1).setCellValue("Longest Keyword");
+        headerRow.createCell(2).setCellValue("Shortest Keyword");
+
+       
+        Row dataRow = sheet.createRow(1);
+        dataRow.createCell(0).setCellValue(LocalDate.now().toString());
+        dataRow.createCell(1).setCellValue(longestKeyword);
+        dataRow.createCell(2).setCellValue(shortestKeyword);
+
+       
+        try (FileOutputStream fileOut = new FileOutputStream("GoogleKeywords.xlsx")) {
+            workbook.write(fileOut);
+            workbook.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
